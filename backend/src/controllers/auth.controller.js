@@ -19,7 +19,7 @@ exports.login = (req, res) => {
   res.json({
     accessToken,
     refreshToken,
-    user: { id: user.id, username: user.username, role: user.role }
+    user: { id: user.id, username: user.username, firstName: user.firstName, lastName: user.lastName, role: user.role }
   });
 };
 
