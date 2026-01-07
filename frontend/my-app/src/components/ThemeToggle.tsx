@@ -8,12 +8,12 @@ export default function ThemeToggle() {
     <button
       aria-label="Toggle theme"
       onClick={toggleTheme}
-      className="p-1 rounded hover:bg-(--color-border) transition"
+      className="p-1 rounded transition-all duration-200 hover:ring-2 hover:ring-blue-500"
     >
       {theme === "dark" ? (
-        <Sun size={18} />
-      ) : (
         <Moon size={18} />
+      ) : (
+        <Sun size={18} />
       )}
     </button>
   );

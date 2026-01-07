@@ -1,5 +1,5 @@
-import { Navigate } from "react-router-dom";
 import { useAuth } from "./useAuth";
+import NotFound from "../pages/NotFound";
 
 type Props = {
   role: "admin" | "user";
@@ -10,7 +10,7 @@ export default function RequireRole({ role, children }: Props) {
   const { user } = useAuth();
 
   if (!user || user.role !== role) {
-    return <Navigate to="/" replace />;
+    return <NotFound />;
   }
 
   return <>{children}</>;

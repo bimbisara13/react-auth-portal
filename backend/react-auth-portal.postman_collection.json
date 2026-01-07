@@ -1,29 +1,23 @@
 {
 	"info": {
-		"_postman_id": "5f919bd6-8247-4dd1-8612-56d88cc4798d",
+		"_postman_id": "51a45df7-eedc-4768-ad98-8d41b69bd1f3",
 		"name": "react-auth-portal",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "23096554"
+		"_exporter_id": "51303631",
+		"_collection_link": "https://bimbisara-6eb176b3-8518764.postman.co/workspace/Bimbisara-Pinnamaneni's-Workspa~ed599f60-9b9b-4b8c-8143-8ee3435ad425/collection/51303631-51a45df7-eedc-4768-ad98-8d41b69bd1f3?action=share&source=collection_link&creator=51303631"
 	},
 	"item": [
 		{
 			"name": "/auth/login",
 			"request": {
 				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InVzZXIiLCJpYXQiOjE3Njc3MTA4OTUsImV4cCI6MTc2NzcxMTc5NX0.W8PLzHbO54k8hETkZVkrwra5xso1VQS9bp6eOjvKJp0",
-							"type": "string"
-						}
-					]
+					"type": "noauth"
 				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\"\n}\n",
+					"raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin@123\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -31,12 +25,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:4000/auth/login",
-					"protocol": "http",
+					"raw": "{{BASE_URL}}/auth/login",
 					"host": [
-						"localhost"
+						"{{BASE_URL}}"
 					],
-					"port": "4000",
 					"path": [
 						"auth",
 						"login"
@@ -49,24 +41,21 @@
 			"name": "/protected",
 			"request": {
 				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InVzZXIiLCJpYXQiOjE3Njc3MTEwMTEsImV4cCI6MTc2NzcxMTkxMX0.19OdD8GXDxUreVVQ7xuJDhu63vhKGosn2pC68VE7ig8",
-							"type": "string"
-						}
-					]
+					"type": "noauth"
 				},
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzY3Nzc3MjM0LCJleHAiOjE3Njc3Nzc4MzR9.n93F-gr9FMZcIW-Ip5cd9Za5PdqFlntHo7HX-awULTE",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://localhost:4000/protected",
-					"protocol": "http",
+					"raw": "{{BASE_URL}}/protected",
 					"host": [
-						"localhost"
+						"{{BASE_URL}}"
 					],
-					"port": "4000",
 					"path": [
 						"protected"
 					]
@@ -84,17 +73,15 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzY3NzExMzAzLCJleHAiOjE3Njc3MTIyMDN9.9-kFlSdhBbhntBAPVlAhBKaLcBAN5mSA7aD5JC8Pkx4",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzY3Nzc3MjM0LCJleHAiOjE3Njc3Nzc4MzR9.n93F-gr9FMZcIW-Ip5cd9Za5PdqFlntHo7HX-awULTE",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://localhost:4000/admin",
-					"protocol": "http",
+					"raw": "{{BASE_URL}}/admin",
 					"host": [
-						"localhost"
+						"{{BASE_URL}}"
 					],
-					"port": "4000",
 					"path": [
 						"admin"
 					]
@@ -118,7 +105,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzY3NzExNDg0LCJleHAiOjE3NjgzMTYyODR9.4Lj3lvpFZKWMwptb1Phz9QsmSTU4xx8PJInnQY2Bfg0\"\n}\n",
+					"raw": "{\n  \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzY3Nzc3MjM0LCJleHAiOjE3Njc4NjM2MzR9.7kOAWMKEYLNh9coFSKbVo2SuoS77G18SYuHwBtXjffw\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -126,12 +113,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:4000/auth/refresh",
-					"protocol": "http",
+					"raw": "{{BASE_URL}}/auth/refresh",
 					"host": [
-						"localhost"
+						"{{BASE_URL}}"
 					],
-					"port": "4000",
 					"path": [
 						"auth",
 						"refresh"
@@ -143,10 +128,45 @@
 		{
 			"name": "/auth/logout",
 			"request": {
-				"method": "GET",
-				"header": []
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzY3Nzc3OTY4LCJleHAiOjE3Njc3Nzg1Njh9.0or-WTOu8ca5zQRgs-_HexgiyrttFNvfv0CB_1aYXGA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzY3Nzc3OTY4LCJleHAiOjE3Njc4NjQzNjh9.2uAjHFXdi2qvTm5Ghq-lZBosG9ejsX735o3JO9M_hOs\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/auth/logout",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"auth",
+						"logout"
+					]
+				}
 			},
 			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "",
+			"type": "default"
 		}
 	]
 }

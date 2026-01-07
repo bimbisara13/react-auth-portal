@@ -29,13 +29,13 @@ export default function Navbar() {
       <div className="flex items-center gap-4">
         <ThemeToggle />
 
-        <span className="text-sm">
+        <span className="text-md">
           {user?.firstName} {user?.lastName}
         </span>
 
         <button
           onClick={logout}
-          className="text-sm text-(--color-accent) hover:underline"
+          className="text-md px-2 rounded-lg py-1 bg-red-600 text-white hover:bg-red-700 transition-colors duration-200"
         >
           Logout
         </button>
