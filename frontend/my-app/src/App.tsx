@@ -1,12 +1,17 @@
-import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import { AuthProvider } from "./auth/AuthProvider";
+import { ThemeProvider } from "./theme/ThemeProvider";
+import AppRoutes from "./routes";
 
 function App() {
   return (
-    <>
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <p className="text-5xl font-normal">Auth Portal</p>
-      </div>
-    </>
+    <BrowserRouter>
+      <ThemeProvider>
+        <AuthProvider>
+          <AppRoutes />
+        </AuthProvider>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 

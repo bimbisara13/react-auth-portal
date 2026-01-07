@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+/* semantic tokens */
+:root {
+  --color-bg: var(--bg);
+  --color-text: var(--text);
+  --color-accent: var(--accent);
+}
+
+/* light */
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --accent: #6366f1;
+}
+
+/* dark */
+.dark {
+  --bg: #000000;
+  --text: #ffffff;
+  --accent: #818cf8;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
