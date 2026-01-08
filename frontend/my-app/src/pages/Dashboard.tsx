@@ -1,8 +1,8 @@
-import Navbar from "../components/Navbar";
-import { useAuth } from "../hooks/useAuth";
+import Navbar from '../components/Navbar'
+import { useAuth } from '../hooks/useAuth'
 
 export default function Dashboard() {
-  const { user } = useAuth();
+  const { user } = useAuth()
 
   return (
     <>
@@ -12,11 +12,12 @@ export default function Dashboard() {
         <div className="text-lg my-4">
           <p className="mb-2">Welcome back, {user?.firstName}.</p>
 
-          <p className="text-(--color-muted)">
-            You are logged in as <span className="font-semibold text-sky-500">{user?.role}</span>.
+          <p>
+            You are logged in as{' '}
+            <span className="font-semibold text-sky-500">{user?.role}</span>.
           </p>
         </div>
       </main>
     </>
-  );
+  )
 }

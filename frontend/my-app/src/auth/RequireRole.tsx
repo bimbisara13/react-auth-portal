@@ -1,17 +1,17 @@
-import { useAuth } from "../hooks/useAuth";
-import NotFound from "../pages/NotFound";
+import { useAuth } from '../hooks/useAuth'
+import NotFound from '../pages/NotFound'
 
 type Props = {
-  role: "admin" | "user";
-  children: React.ReactNode;
-};
+  role: 'admin' | 'user'
+  children: React.ReactNode
+}
 
 export default function RequireRole({ role, children }: Props) {
-  const { user } = useAuth();
+  const { user } = useAuth()
 
   if (!user || user.role !== role) {
-    return <NotFound />;
+    return <NotFound />
   }
 
-  return <>{children}</>;
+  return <>{children}</>
 }

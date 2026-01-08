@@ -1,9 +1,9 @@
-import { Link, NavLink } from "react-router-dom";
-import { useAuth } from "../hooks/useAuth";
-import ThemeToggle from "./ThemeToggle";
+import { Link, NavLink } from 'react-router-dom'
+import { useAuth } from '../hooks/useAuth'
+import ThemeToggle from './ThemeToggle'
 
 export default function Navbar() {
-  const { user, logout } = useAuth();
+  const { user, logout } = useAuth()
 
   return (
     <nav className="flex items-center justify-between px-6 py-3 border-b border-(--color-border) bg-(--color-bg)">
@@ -12,12 +12,14 @@ export default function Navbar() {
           Auth Portal
         </Link>
 
-        {user?.role === "admin" && (
+        {user?.role === 'admin' && (
           <NavLink
             to="/admin"
             className={({ isActive }) =>
               `text-sm ${
-                isActive ? "text-(--color-pill) bg-(--color-pill)/20 rounded-lg" : "text-(--color-text)"
+                isActive
+                  ? 'text-(--color-pill) bg-(--color-pill)/20 rounded-lg'
+                  : 'text-(--color-text)'
               } p-2`
             }
           >
@@ -41,5 +43,5 @@ export default function Navbar() {
         </button>
       </div>
     </nav>
-  );
+  )
 }
