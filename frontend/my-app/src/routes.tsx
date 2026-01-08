@@ -7,22 +7,17 @@ import NotFound from "./pages/NotFound";
 
 import RequireAuth from "./auth/RequireAuth";
 import RequireRole from "./auth/RequireRole";
-import { useAuth } from "./auth/useAuth";
+import { useAuth } from "./hooks/useAuth";
 
 export default function AppRoutes() {
   const { user } = useAuth();
 
   return (
     <Routes>
-      {/* Redirect logged-in users away from login */}
       <Route
         path="/login"
-        element={
-          user ? <Navigate to="/" replace /> : <Login />
-        }
+        element={user ? <Navigate to="/" replace /> : <Login />}
       />
-
-      {/* Protected dashboard */}
       <Route
         path="/"
         element={
@@ -31,8 +26,6 @@ export default function AppRoutes() {
           </RequireAuth>
         }
       />
-
-      {/* Admin-only route */}
       <Route
         path="/admin"
         element={
@@ -43,8 +36,6 @@ export default function AppRoutes() {
           </RequireAuth>
         }
       />
-
-      {/* 404 */}
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

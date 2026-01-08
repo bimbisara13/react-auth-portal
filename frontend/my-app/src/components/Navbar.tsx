@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import { useAuth } from "../auth/useAuth";
+import { useAuth } from "../hooks/useAuth";
 import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
@@ -17,8 +17,8 @@ export default function Navbar() {
             to="/admin"
             className={({ isActive }) =>
               `text-sm ${
-                isActive ? "text-(--color-accent)" : "text-(--color-muted)"
-              }`
+                isActive ? "text-(--color-pill) bg-(--color-pill)/20 rounded-lg" : "text-(--color-text)"
+              } p-2`
             }
           >
             Admin

@@ -4,18 +4,22 @@
   --color-bg: var(--bg);
   --color-text: var(--text);
   --color-accent: var(--accent);
+  --color-border: --color-text;
+  --color-pill: var(--pill);
 }
 
 :root {
-  --bg: #ffffff;
-  --text: #000000;
+  --bg: #f8f9fa;
+  --text: #001219;
   --accent: #03045e;
+  --pill: #1541de;
 }
 
 .dark {
-  --bg: #000000;
-  --text: #ffffff;
+  --bg: #001219;
+  --text: #f8f9fa;
   --accent: #4361ee;
+  --pill: #ffcc00;
 }
 
 body {

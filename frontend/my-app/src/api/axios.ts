@@ -7,8 +7,6 @@ const api = axios.create({
   },
 });
 
-// Request Interceptor
-
 api.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
     const token = localStorage.getItem("accessToken");
@@ -19,8 +17,6 @@ api.interceptors.request.use(
   },
   (error) => Promise.reject(error)
 );
-
-// Response Interceptor
 
 let isRefreshing = false;
 let failedQueue: {

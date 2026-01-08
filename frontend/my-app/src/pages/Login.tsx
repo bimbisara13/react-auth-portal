@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../auth/useAuth";
+
+import { useAuth } from "../hooks/useAuth";
 import ThemeToggle from "../components/ThemeToggle";
+import { getLoginErrorMessage } from "../utils/error-handler";
+
 import { Eye, EyeOff } from "lucide-react";
 
 export default function Login() {
@@ -22,8 +25,8 @@ export default function Login() {
     try {
       await login(form);
       navigate("/", { replace: true });
-    } catch {
-      setError("Invalid username or password");
+    } catch (err: unknown) {
+      setError(getLoginErrorMessage(err));
     }
   };
 
@@ -34,7 +37,7 @@ export default function Login() {
       </span>
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-sm p-6 border rounded-lg border-(--color-border)"
+        className="w-full max-w-sm p-6 border rounded-lg border-(--color-border) shadow-2xl shadow-(--color-text)/10"
       >
         <h1 className="text-xl font-semibold mb-1">Sign in</h1>
         <p className="text-sm text-(--color-muted) mb-4">
@@ -43,7 +46,7 @@ export default function Login() {
 
         <label className="block text-sm mb-1">Username</label>
         <input
-        id=""
+          id="username"
           className="w-full mb-4 p-2 rounded border border-(--color-border)"
           value={form.username}
           onChange={(e) => setForm({ ...form, username: e.target.value })}
@@ -53,6 +56,7 @@ export default function Login() {
         <label className="block text-sm mb-1">Password</label>
         <div className="relative w-full mb-4">
           <input
+            id="password"
             type={showPassword ? "text" : "password"}
             className="w-full p-2 pr-10 rounded border border-(--color-border)"
             value={form.password}
