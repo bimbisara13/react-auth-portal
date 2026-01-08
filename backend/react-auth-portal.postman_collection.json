@@ -17,7 +17,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin@123\"\n}\n",
+					"raw": "{\n  \"username\": \"bimbisara\",\n  \"password\": \"admin@123\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -38,32 +38,6 @@
 			"response": []
 		},
 		{
-			"name": "/protected",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzY3Nzc3MjM0LCJleHAiOjE3Njc3Nzc4MzR9.n93F-gr9FMZcIW-Ip5cd9Za5PdqFlntHo7HX-awULTE",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{BASE_URL}}/protected",
-					"host": [
-						"{{BASE_URL}}"
-					],
-					"path": [
-						"protected"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "/admin",
 			"request": {
 				"auth": {
@@ -73,7 +47,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzY3Nzc3MjM0LCJleHAiOjE3Njc3Nzc4MzR9.n93F-gr9FMZcIW-Ip5cd9Za5PdqFlntHo7HX-awULTE",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzY3ODU0MDk1LCJleHAiOjE3Njc4NTQ2OTV9.1cKx9qBuIbs1kVxioJi6atoiIVTta3Od6RDDE-BgXpY",
 						"type": "text"
 					}
 				],
@@ -105,7 +79,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzY3Nzc3MjM0LCJleHAiOjE3Njc4NjM2MzR9.7kOAWMKEYLNh9coFSKbVo2SuoS77G18SYuHwBtXjffw\"\n}\n",
+					"raw": "{\n  \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzY3ODU0MDk1LCJleHAiOjE3Njc5NDA0OTV9.MLnfUCkVlXGq64iLYR-yNtbdLUxln-9YRq8cewkM-KU\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
