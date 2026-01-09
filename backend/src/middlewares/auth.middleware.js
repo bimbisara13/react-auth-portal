@@ -1,17 +1,16 @@
-const jwt = require("jsonwebtoken");
-const jwtConfig = require("../config/jwt");
+const jwt = require('jsonwebtoken')
+const jwtConfig = require('../config/jwt')
 
 function authenticateToken(req, res, next) {
-  const authHeader = req.headers["authorization"];
-  const token = authHeader && authHeader.split(" ")[1];
+  const token = req.cookies.accessToken
 
-  if (!token) return res.sendStatus(401);
+  if (!token) return res.sendStatus(401)
 
   jwt.verify(token, jwtConfig.accessTokenSecret, (err, user) => {
-    if (err) return res.sendStatus(403);
-    req.user = user;
-    next();
-  });
+    if (err) return res.sendStatus(403)
+    req.user = user
+    next()
+  })
 }
 
-module.exports = authenticateToken;
+module.exports = authenticateToken

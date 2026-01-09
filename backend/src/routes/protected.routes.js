@@ -1,10 +1,10 @@
-const express = require("express");
-const router = express.Router();
-const authenticateToken = require("../middlewares/auth.middleware");
-const authorizeRole = require("../middlewares/rbac.middleware");
+const express = require('express')
+const router = express.Router()
+const authenticateToken = require('../middlewares/auth.middleware')
+const authorizeRole = require('../middlewares/rbac.middleware')
 
-router.get("/admin", authenticateToken, authorizeRole("admin"), (req, res) => {
-  res.json({ message: "Admin data" });
-});
+router.get('/admin', authenticateToken, authorizeRole('admin'), (req, res) => {
+  res.json({ message: 'Admin data' })
+})
 
-module.exports = router;
+module.exports = router
