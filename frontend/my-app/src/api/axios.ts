@@ -2,38 +2,9 @@ import axios, { AxiosError, type InternalAxiosRequestConfig } from 'axios'
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
+  headers: { 'Content-Type': 'application/json' },
+  withCredentials: true,
 })
-
-api.interceptors.request.use(
-  (config: InternalAxiosRequestConfig) => {
-    const token = localStorage.getItem('accessToken')
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`
-    }
-    return config
-  },
-  (error) => Promise.reject(error)
-)
-
-let isRefreshing = false
-let failedQueue: {
-  resolve: (token: string) => void
-  reject: (err: unknown) => void
-}[] = []
-
-const processQueue = (error: unknown, token: string | null) => {
-  failedQueue.forEach((p) => {
-    if (error) {
-      p.reject(error)
-    } else {
-      p.resolve(token as string)
-    }
-  })
-  failedQueue = []
-}
 
 api.interceptors.response.use(
   (response) => response,
@@ -45,40 +16,15 @@ api.interceptors.response.use(
     if (error.response?.status === 403 && !originalRequest._retry) {
       originalRequest._retry = true
 
-      if (isRefreshing) {
-        return new Promise((resolve, reject) => {
-          failedQueue.push({
-            resolve: (token: string) => {
-              originalRequest.headers.Authorization = `Bearer ${token}`
-              resolve(api(originalRequest))
-            },
-            reject,
-          })
-        })
-      }
-
-      isRefreshing = true
-
       try {
-        const refreshToken = localStorage.getItem('refreshToken')
-        if (!refreshToken) throw error
+        await api.post('/auth/refresh')
 
-        const { data } = await api.post('/auth/refresh', {
-          refreshToken,
-        })
-
-        localStorage.setItem('accessToken', data.accessToken)
-        processQueue(null, data.accessToken)
-
-        originalRequest.headers.Authorization = `Bearer ${data.accessToken}`
         return api(originalRequest)
       } catch (err) {
-        processQueue(err, null)
-        localStorage.clear()
+        localStorage.removeItem('user')
         window.location.href = '/login'
+
         return Promise.reject(err)
-      } finally {
-        isRefreshing = false
       }
     }
 
