@@ -1,37 +1,24 @@
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Navbar from '../components/Navbar'
-import { useAuth } from '../hooks/useAuth'
-import { useEffect, useState } from 'react'
 import SearchTable, { type Column } from '../components/SearchTable'
-
-interface RandomUserName {
-  first: string
-  last: string
-}
-
-interface RandomUser {
-  name: RandomUserName
-  email: string
-}
+import { useAuth } from '../hooks/useAuth'
+import { type User, userDetails } from '../store/users.thunk'
+import type { RootState, AppDispatch } from '../store'
 
 export default function Dashboard() {
   const { user } = useAuth()
-  const [users, setUsers] = useState<RandomUser[]>([])
-  const [loading, setLoading] = useState(true)
+  const dispatch = useDispatch<AppDispatch>()
 
-  const BASE_URL = 'https://randomuser.me/api/?results=30'
+  const { users, loading } = useSelector((state: RootState) => state.users)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      fetch(BASE_URL)
-        .then((res) => res.json())
-        .then((data) => setUsers(data.results))
-        .finally(() => setLoading(false))
-    }, 2000)
+    if (!users || users.length === 0) {
+      dispatch(userDetails())
+    }
+  }, [dispatch, users])
 
-    return () => clearTimeout(timer)
-  }, [])
-
-  const columns: Column<RandomUser>[] = [
+  const columns: Column<User>[] = [
     {
       key: 'id',
       header: 'ID',
@@ -54,9 +41,9 @@ export default function Dashboard() {
       <Navbar />
       <main className="p-6">
         <h1 className="text-xl font-semibold mb-2">Dashboard</h1>
+
         <div className="text-lg my-4">
           <p className="mb-2">Welcome back, {user?.firstName}.</p>
-
           <p>
             You are logged in as{' '}
             <span className="font-semibold text-sky-500">{user?.role}</span>.
@@ -64,8 +51,9 @@ export default function Dashboard() {
         </div>
 
         <p className="text-3xl font-light my-8 text-center">User data</p>
-        <SearchTable<RandomUser>
-          data={users}
+
+        <SearchTable<User>
+          data={users || []}
           columns={columns}
           getRowId={(row) => row.email}
           filterFn={(row, search) =>
