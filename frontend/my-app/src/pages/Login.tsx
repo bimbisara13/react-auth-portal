@@ -6,7 +6,6 @@ import ThemeToggle from '../components/ThemeToggle'
 import { useAuth } from '../hooks/useAuth'
 import { getLoginErrorMessage } from '../utils/error-handler'
 
-
 export default function Login() {
   const { login } = useAuth()
   const navigate = useNavigate()
@@ -64,7 +63,7 @@ export default function Login() {
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-(--color-text) transition-colors duration-300 ease-in-out"
             aria-label={showPassword ? 'Hide password' : 'Show password'}
           >
             {showPassword ? <Eye size={18} /> : <EyeOff size={18} />}
