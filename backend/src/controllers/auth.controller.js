@@ -6,6 +6,9 @@ const { generateAccessToken, generateRefreshToken } = require('../utils/token')
 let refreshTokens = []
 
 exports.login = (req, res) => {
+  if (req.body.username === 'trigger500')
+    return res.status(500).json({ message: 'Simulated server error' })
+
   const { username, password } = req.body
 
   const user = users.find(

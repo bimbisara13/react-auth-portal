@@ -6,7 +6,7 @@ export const getLoginErrorMessage = (err: unknown): string => {
   }
 
   if (!err.response) {
-    return 'Server Error: Please try again later.'
+    return 'Unable to connect to the server.'
   }
 
   const status = err.response.status

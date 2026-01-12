@@ -5,14 +5,19 @@ import Dashboard from './pages/Dashboard'
 import Admin from './pages/Admin'
 import NotFound from './pages/NotFound'
 
-import RequireAuth from './auth/RequireAuth'
-import RequireRole from './auth/RequireRole'
+import RequireAuth from './auth/guards/RequireAuth'
+import RequireRole from './auth/guards/RequireRole'
+import RedirectIfAuth from './auth/guards/RedirectIfAuth'
 
 export default function AppRoutes() {
   const router = createBrowserRouter([
     {
       path: '/login',
-      element: <Login />,
+      element: (
+        <RedirectIfAuth>
+          <Login />
+        </RedirectIfAuth>
+      ),
     },
     {
       path: '/',
