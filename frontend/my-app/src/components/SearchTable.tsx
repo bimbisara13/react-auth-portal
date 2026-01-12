@@ -1,19 +1,5 @@
-import { useState, useMemo, useRef, useCallback, type ReactNode } from 'react'
-
-export interface Column<T> {
-  key: string
-  header: string
-  render: (row: T, index: number) => ReactNode
-}
-
-export interface SearchTableProps<T> {
-  data: T[]
-  columns: Column<T>[]
-  getRowId: (row: T, index: number) => string | number
-  filterFn?: (row: T, search: string) => boolean
-  itemsPerPage?: number
-  loading?: boolean
-}
+import { useState, useMemo, useRef, useCallback } from 'react'
+import type { SearchTableProps } from '../types'
 
 export default function PaginatedSearchTable<T>({
   data,

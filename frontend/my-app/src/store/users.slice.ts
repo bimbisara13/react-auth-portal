@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { userDetails, type User } from './users.thunk'
+import { userDetails } from './users.thunk'
+import type { Users } from '../types'
 
 interface UsersState {
-  users: User[] | null
+  users: Users[] | null
   loading: boolean
   error?: string
 }

@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Eye, EyeOff } from 'lucide-react'
 
-import { useAuth } from '../hooks/useAuth'
 import ThemeToggle from '../components/ThemeToggle'
+import { useAuth } from '../hooks/useAuth'
 import { getLoginErrorMessage } from '../utils/error-handler'
 
-import { Eye, EyeOff } from 'lucide-react'
 
 export default function Login() {
   const { login } = useAuth()

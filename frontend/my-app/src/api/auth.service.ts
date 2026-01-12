@@ -1,14 +1,5 @@
 import api from './axios'
-import { type User } from '../auth/auth.context'
-
-type LoginPayload = {
-  username: string
-  password: string
-}
-
-type LoginResponse = {
-  user: User
-}
+import type { User, LoginPayload, LoginResponse } from '../types'
 
 export const login = async (payload: LoginPayload): Promise<User> => {
   const { data } = await api.post<LoginResponse>('/auth/login', payload)

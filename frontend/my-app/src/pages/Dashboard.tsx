@@ -1,10 +1,12 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+
 import Navbar from '../components/Navbar'
-import SearchTable, { type Column } from '../components/SearchTable'
+import SearchTable from '../components/SearchTable'
 import { useAuth } from '../hooks/useAuth'
-import { type User, userDetails } from '../store/users.thunk'
 import type { RootState, AppDispatch } from '../store'
+import { userDetails } from '../store/users.thunk'
+import type { Users, Column } from '../types'
 
 export default function Dashboard() {
   const { user } = useAuth()
@@ -18,7 +20,7 @@ export default function Dashboard() {
     }
   }, [dispatch, users])
 
-  const columns: Column<User>[] = [
+  const columns: Column<Users>[] = [
     {
       key: 'id',
       header: 'ID',
@@ -52,7 +54,7 @@ export default function Dashboard() {
 
         <p className="text-3xl font-light my-8 text-center">User data</p>
 
-        <SearchTable<User>
+        <SearchTable<Users>
           data={users || []}
           columns={columns}
           getRowId={(row) => row.email}
