@@ -25,7 +25,7 @@ export default function PaginatedSearchTable<T>({
     debounceRef.current = window.setTimeout(() => {
       setSearch(val)
       setCurrentPage(1)
-    }, 500)
+    }, 1000)
   }, [])
 
   const filteredData = useMemo<T[]>(() => {

@@ -10,7 +10,9 @@ function App() {
   return (
     <ThemeProvider>
       <AuthProvider>
-        <RouterProvider router={router} />
+          <div className="flex-1 w-full max-w-[1920px] mx-auto">
+            <RouterProvider router={router} />
+          </div>
       </AuthProvider>
     </ThemeProvider>
   )

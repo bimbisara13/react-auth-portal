@@ -30,8 +30,16 @@ export default function Navbar() {
       <nav className="relative border-b border-(--color-border) bg-(--color-bg)">
         <div className="flex items-center justify-between px-6 py-3">
           <div className="flex items-center gap-6">
-            <Link to="/" className="font-semibold text-(--color-text)">
-              Auth Portal
+            <Link
+              to="/"
+              className="flex items-center gap-2 font-semibold text-(--color-text)"
+            >
+              <img
+                src="/auth.png"
+                alt="Auth Portal Logo"
+                className="h-7 w-7 object-contain"
+              />
+              <span>Auth Portal</span>
             </Link>
 
             <div className="hidden md:flex items-center gap-2">
