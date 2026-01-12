@@ -1,30 +1,38 @@
-import axios, { AxiosError, type InternalAxiosRequestConfig } from 'axios'
+import axios, { AxiosError } from 'axios'
+import type { ExtendedConfig } from '../types'
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: import.meta.env.VITE_BASE_URL,
   headers: { 'Content-Type': 'application/json' },
   withCredentials: true,
+})
+
+api.interceptors.request.use((config: ExtendedConfig) => {
+  if (config.skipAuth) {
+    config.withCredentials = false
+  }
+  return config
 })
 
 api.interceptors.response.use(
   (response) => response,
   async (error: AxiosError) => {
-    const originalRequest = error.config as InternalAxiosRequestConfig & {
-      _retry?: boolean
-    }
+    const originalRequest = error.config as ExtendedConfig
 
-    if (error.response?.status === 403 && !originalRequest._retry) {
+    if (
+      error.response?.status === 403 &&
+      !originalRequest._retry &&
+      !originalRequest.skipAuth
+    ) {
       originalRequest._retry = true
 
       try {
         await api.post('/auth/refresh')
 
         return api(originalRequest)
-      } catch (err) {
+      } catch {
         localStorage.removeItem('user')
         window.location.href = '/login'
-
-        return Promise.reject(err)
       }
     }
 
