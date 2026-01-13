@@ -3,8 +3,24 @@ const jwt = require('jsonwebtoken')
 const jwtConfig = require('../config/jwt')
 const { generateAccessToken, generateRefreshToken } = require('../utils/token')
 
+/**
+ * In-memory store of refresh tokens.
+ */
 let refreshTokens = []
 
+/**
+ * POST /auth/login
+ * Authenticate a user and issue access and refresh tokens.
+ *
+ * Flow:
+ *  - Check if username/password match a user in the memory
+ *  - If valid, generate access and refresh tokens
+ *  - Store refresh token in memory
+ *  - Set tokens as HttpOnly cookies
+ *  - Return user info in the response
+ *
+ * Simulated server error if username is 'trigger500'.
+ */
 exports.login = (req, res) => {
   if (req.body.username === 'trigger500')
     return res.status(500).json({ message: 'Simulated server error' })
@@ -46,6 +62,15 @@ exports.login = (req, res) => {
   })
 }
 
+/**
+ * POST /auth/refresh
+ * Issue a new access token using a valid refresh token.
+ *
+ * Flow:
+ *  - Check if refresh token exists in cookies and memory
+ *  - Verify refresh token validity
+ *  - Generate a new access token and set it as a cookie
+ */
 exports.refresh = (req, res) => {
   const refreshToken = req.cookies.refreshToken
 
@@ -68,6 +93,10 @@ exports.refresh = (req, res) => {
   })
 }
 
+/**
+ * POST /auth/logout
+ * Log out a user by invalidating their refresh token and clearing cookies.
+ */
 exports.logout = (req, res) => {
   const refreshToken = req.cookies.refreshToken
 

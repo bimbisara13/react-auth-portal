@@ -1,145 +1,126 @@
 {
-	"info": {
-		"_postman_id": "cdd75168-eb29-4fed-8b07-06c42630dc1e",
-		"name": "react-auth-portal",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "23096554"
-	},
-	"item": [
-		{
-			"name": "/auth/login",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"username\": \"bimbisara\",\n  \"password\": \"admin@123\"\n}\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{BASE_URL}}/auth/login",
-					"host": [
-						"{{BASE_URL}}"
-					],
-					"path": [
-						"auth",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/admin",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzY3ODU0MDk1LCJleHAiOjE3Njc4NTQ2OTV9.1cKx9qBuIbs1kVxioJi6atoiIVTta3Od6RDDE-BgXpY",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{BASE_URL}}/admin",
-					"host": [
-						"{{BASE_URL}}"
-					],
-					"path": [
-						"admin"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/auth/refresh",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzY3NzExMzAzLCJleHAiOjE3Njc3MTIyMDN9.9-kFlSdhBbhntBAPVlAhBKaLcBAN5mSA7aD5JC8Pkx4",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzY3ODU0MDk1LCJleHAiOjE3Njc5NDA0OTV9.MLnfUCkVlXGq64iLYR-yNtbdLUxln-9YRq8cewkM-KU\"\n}\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{BASE_URL}}/auth/refresh",
-					"host": [
-						"{{BASE_URL}}"
-					],
-					"path": [
-						"auth",
-						"refresh"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/auth/logout",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzY3Nzc3OTY4LCJleHAiOjE3Njc3Nzg1Njh9.0or-WTOu8ca5zQRgs-_HexgiyrttFNvfv0CB_1aYXGA",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzY3Nzc3OTY4LCJleHAiOjE3Njc4NjQzNjh9.2uAjHFXdi2qvTm5Ghq-lZBosG9ejsX735o3JO9M_hOs\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{BASE_URL}}/auth/logout",
-					"host": [
-						"{{BASE_URL}}"
-					],
-					"path": [
-						"auth",
-						"logout"
-					]
-				}
-			},
-			"response": []
-		}
-	],
-	"variable": [
-		{
-			"key": "BASE_URL",
-			"value": "",
-			"type": "default"
-		}
-	]
+  "info": {
+    "_postman_id": "cdd75168-eb29-4fed-8b07-06c42630dc1e",
+    "name": "react-auth-portal",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "23096554"
+  },
+  "item": [
+    {
+      "name": "/auth/login",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"bimbisara\",\n  \"password\": \"admin@123\"\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/auth/login",
+          "host": ["{{BASE_URL}}"],
+          "path": ["auth", "login"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/admin",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzY3ODU0MDk1LCJleHAiOjE3Njc4NTQ2OTV9.1cKx9qBuIbs1kVxioJi6atoiIVTta3Od6RDDE-BgXpY",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{BASE_URL}}/admin",
+          "host": ["{{BASE_URL}}"],
+          "path": ["admin"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/auth/refresh",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzY3NzExMzAzLCJleHAiOjE3Njc3MTIyMDN9.9-kFlSdhBbhntBAPVlAhBKaLcBAN5mSA7aD5JC8Pkx4",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzY3ODU0MDk1LCJleHAiOjE3Njc5NDA0OTV9.MLnfUCkVlXGq64iLYR-yNtbdLUxln-9YRq8cewkM-KU\"\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/auth/refresh",
+          "host": ["{{BASE_URL}}"],
+          "path": ["auth", "refresh"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/auth/logout",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzY3Nzc3OTY4LCJleHAiOjE3Njc3Nzg1Njh9.0or-WTOu8ca5zQRgs-_HexgiyrttFNvfv0CB_1aYXGA",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzY3Nzc3OTY4LCJleHAiOjE3Njc4NjQzNjh9.2uAjHFXdi2qvTm5Ghq-lZBosG9ejsX735o3JO9M_hOs\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/auth/logout",
+          "host": ["{{BASE_URL}}"],
+          "path": ["auth", "logout"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "BASE_URL",
+      "value": "",
+      "type": "default"
+    }
+  ]
 }

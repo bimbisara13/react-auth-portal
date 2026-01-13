@@ -1,3 +1,15 @@
+/**
+ * In-memory user database
+ *
+ * This array simulates a user store for authentication and role-based access.
+ * Each user object contains:
+ *   - id: unique numeric identifier
+ *   - username: login name
+ *   - password: plaintext password
+ *   - firstName, lastName: user's personal info
+ *   - role: 'admin' or 'user' for RBAC
+ */
+
 const users = [
   {
     id: 1,
