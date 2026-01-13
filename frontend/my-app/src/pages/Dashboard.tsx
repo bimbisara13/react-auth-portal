@@ -8,6 +8,19 @@ import type { RootState, AppDispatch } from '../store'
 import { userDetails } from '../store/users.thunk'
 import type { Users, Column } from '../types'
 
+/**
+ * Dashboard Page
+ *
+ * Main landing page for authenticated users.
+ * Responsibilities:
+ *  - Greets the logged-in user by first name
+ *  - Displays the user role
+ *  - Fetches users data from the API via Redux thunk
+ *  - Displays users data in a searchable, paginated table
+ *
+ * Usage:
+ *  - Wrapped in <RequireAuth> in the router to restrict access
+ */
 export default function Dashboard() {
   const { user } = useAuth()
   const dispatch = useDispatch<AppDispatch>()

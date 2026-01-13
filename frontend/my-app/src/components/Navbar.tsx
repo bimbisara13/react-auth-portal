@@ -3,10 +3,23 @@ import { Link, NavLink, type NavLinkProps } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 
 import { useAuth } from '../hooks/useAuth'
-
 import Modal from './Modal'
 import ThemeToggle from './ThemeToggle'
 
+/**
+ * Navbar Component
+ *
+ * A responsive navigation bar for the Auth Portal, with options for:
+ *  - Navigating to the dashboard, admin panel, and handling logout
+ *  - Displaying the current user's name and role
+ *  - Mobile-friendly menu with a toggleable hamburger menu
+ *
+ * Responsibilities:
+ *  - Display brand logo and title.
+ *  - Show user-specific menu options like "Admin" link based on role
+ *  - Provide theme toggle functionality
+ *  - Handle user logout with confirmation modal
+ */
 export default function Navbar() {
   const { user, logout } = useAuth()
   const [open, setOpen] = useState(false)

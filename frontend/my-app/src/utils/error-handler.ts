@@ -1,5 +1,11 @@
 import axios from 'axios'
 
+/**
+ * Returns a user-friendly error message for login failures.
+ *
+ * @param err - The error object caught from a login request.
+ * @returns A string suitable for displaying to the user.
+ */
 export const getLoginErrorMessage = (err: unknown): string => {
   if (!axios.isAxiosError(err)) {
     return 'An unexpected error occurred.'

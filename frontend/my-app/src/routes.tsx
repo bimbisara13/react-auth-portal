@@ -9,11 +9,18 @@ import RequireAuth from './auth/guards/RequireAuth'
 import RequireRole from './auth/guards/RequireRole'
 import RedirectIfAuth from './auth/guards/RedirectIfAuth'
 
+/**
+ * Route Guards:
+ *  - RedirectIfAuth: redirects logged-in users away from login page
+ *  - RequireAuth: ensures user is authenticated
+ *  - RequireRole: ensures user has the required role
+ */
 export default function AppRoutes() {
   const router = createBrowserRouter([
     {
       path: '/login',
       element: (
+        // Redirect logged-in users to dashboard.
         <RedirectIfAuth>
           <Login />
         </RedirectIfAuth>
@@ -22,6 +29,7 @@ export default function AppRoutes() {
     {
       path: '/',
       element: (
+        // Requires user to be authenticated.
         <RequireAuth>
           <Dashboard />
         </RequireAuth>
@@ -30,6 +38,7 @@ export default function AppRoutes() {
     {
       path: '/admin',
       element: (
+        // Requires user to be authenticated AND have 'admin' role.
         <RequireAuth>
           <RequireRole role="admin">
             <Admin />
@@ -38,6 +47,7 @@ export default function AppRoutes() {
       ),
     },
     {
+      // Catch-all 404 route.
       path: '*',
       element: <NotFound />,
     },

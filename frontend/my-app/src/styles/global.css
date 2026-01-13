@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 
+/* Light theme variables (default) */
 :root {
   --color-bg: var(--bg);
   --color-text: var(--text);
@@ -8,6 +9,7 @@
   --color-border: var(--text);
   --color-table-header: var(--table-header);
 
+  /* Base color definitions */
   --bg: #f8f9fa;
   --text: #001219;
   --accent: #03045e;
@@ -15,6 +17,7 @@
   --table-header: #6c757d;
 }
 
+/* Dark theme variables (applied when .dark class is on html/root) */
 .dark {
   --bg: #000814;
   --text: #f8f9fa;

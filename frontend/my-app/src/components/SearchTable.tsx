@@ -1,6 +1,21 @@
 import { useState, useMemo, useRef, useCallback } from 'react'
 import type { SearchTableProps } from '../types'
 
+/**
+ * Generic Search Table
+ *
+ * A table component with search, pagination, and customizable column rendering.
+ * It supports dynamic search filtering and paginates the data with customizable items per page.
+ *
+ * Props:
+ *  - `data`: Array of data to be displayed in the table
+ *  - `columns`: Column definitions including key, header, and render logic
+ *  - `getRowId`: Function to get the unique identifier for each row
+ *  - `filterFn`: Function to filter the data based on search input
+ *  - `itemsPerPage`: Number of items to display per page (default: 7)
+ *  - `loading`: Boolean to indicate loading state and disable interactions
+ *
+ */
 export default function PaginatedSearchTable<T>({
   data,
   columns,

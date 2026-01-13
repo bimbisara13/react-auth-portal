@@ -1,5 +1,23 @@
 import type { ModalProps } from '../types'
 
+/**
+ * Generic Modal
+ *
+ * A reusable modal dialog for confirming actions.
+ * Responsibilities:
+ *  - Displays a modal overlay with a title, description, and confirm/cancel buttons
+ *  - Handles visibility based on `open` prop
+ *  - Calls `onConfirm` and `onCancel` callbacks for the respective button actions
+ *
+ * Props:
+ *  - `open`: Boolean to control visibility.
+ *  - `title`: Title of the modal (default: 'Confirm action')
+ *  - `description`: Optional description text to provide more context
+ *  - `confirmText`: Text for the confirm button (default: 'Confirm')
+ *  - `cancelText`: Text for the cancel button (default: 'Cancel')
+ *  - `onConfirm`: Callback function when the confirm button is clicked
+ *  - `onCancel`: Callback function when the cancel button is clicked or overlay is clicked
+ */
 export default function Modal({
   open,
   title = 'Confirm action',

@@ -1,5 +1,17 @@
 import Navbar from '../components/Navbar'
 
+/**
+ * Admin Page
+ *
+ * Protected route only accessible to users with the 'admin' role.
+ * Responsibilities:
+ *  - Renders the main admin panel layout
+ *  - Displays a message indicating the page is protected
+ *  - Uses the Navbar component for consistent navigation
+ *
+ * Usage:
+ *  - Wrapped in <RequireAuth> and <RequireRole role="admin"> in the router
+ */
 export default function Admin() {
   return (
     <>

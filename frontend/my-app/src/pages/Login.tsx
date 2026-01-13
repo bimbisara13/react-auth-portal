@@ -6,6 +6,20 @@ import ThemeToggle from '../components/ThemeToggle'
 import { useAuth } from '../hooks/useAuth'
 import { getLoginErrorMessage } from '../utils/error-handler'
 
+/**
+ * Login Page
+ *
+ * Handles user authentication and sign-in.
+ * Responsibilities:
+ *  - Collects username and password from user input
+ *  - Toggles password visibility
+ *  - Displays login errors
+ *  - Redirects authenticated users to the dashboard
+ *  - Provides theme toggle access
+ *
+ * Usage:
+ *  - Wrapped with <RedirectIfAuth> in routes to prevent access if already logged in
+ */
 export default function Login() {
   const { login } = useAuth()
   const navigate = useNavigate()
