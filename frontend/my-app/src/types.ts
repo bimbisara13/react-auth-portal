@@ -81,6 +81,14 @@ export type RoleProps = {
 export type Theme = 'light' | 'dark'
 
 /**
+ * Shape of Theme Context state and methods.
+ */
+export type ThemeContextType = {
+  theme: Theme
+  toggleTheme: () => void
+}
+
+/**
  * Props for a modal component.
  */
 export type ModalProps = {

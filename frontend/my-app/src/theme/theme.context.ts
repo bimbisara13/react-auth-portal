@@ -1,7 +1,5 @@
 import { createContext } from 'react'
 
-import type { Theme } from '../types'
-
 /**
  * ThemeContextType
  *
@@ -9,10 +7,7 @@ import type { Theme } from '../types'
  *  - `theme`: current theme value ('light' | 'dark')
  *  - `toggleTheme`: function to toggle between themes
  */
-export type ThemeContextType = {
-  theme: Theme
-  toggleTheme: () => void
-}
+import type { ThemeContextType } from '../types'
 
 /**
  * ThemeContext
